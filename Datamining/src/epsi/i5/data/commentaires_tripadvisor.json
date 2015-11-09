@@ -1,0 +1,308 @@
+[
+    {
+        "id": "1",
+        "commentaires": "Hôtel très bien tenu, idéalement situé. Le check in et check out sont très rapidement effectués. Le petit déjeuner, très copieux et en formule 'à volonté' est délicieux. Les chambres sont calmes, propres. A recommander !",
+        "catégorie": ["Localisation", "Propreté", "Literie","Chambre","Qualité-Prix","Service"],
+        "polarité": "0.8"
+    },
+    {
+        "id": "2",
+        "commentaires": "Genesis",
+        "catégorie": ["cat1", "cat2", "catn"],
+        "polarité": "0.8"
+    },
+    {
+        "id": "3",
+        "commentaires": "Genesis",
+        "catégorie": ["cat1", "cat2", "catn"],
+        "polarité": "0.8"
+    },
+    {
+        "id": "4",
+        "commentaires": "Genesis",
+        "catégorie": ["cat1", "cat2", "catn"],
+        "polarité": "0.8"
+    },
+    {
+        "id": "5",
+        "commentaires": "Genesis",
+        "catégorie": ["cat1", "cat2", "catn"],
+        "polarité": "0.8"
+    },
+    {
+        "id": "6",
+        "commentaires": "Genesis",
+        "catégorie": ["cat1", "cat2", "catn"],
+        "polarité": "0.8"
+    },
+    {
+        "id": "7",
+        "commentaires": "Genesis",
+        "catégorie": ["cat1", "cat2", "catn"],
+        "polarité": "0.8"
+    },
+    {
+        "id": "8",
+        "commentaires": "Genesis",
+        "catégorie": ["cat1", "cat2", "catn"],
+        "polarité": "0.8"
+    },
+    {
+        "id": "9",
+        "commentaires": "Genesis",
+        "catégorie": ["cat1", "cat2", "catn"],
+        "polarité": "0.8"
+    },
+    {
+        "id": "10",
+        "commentaires": "Genesis",
+        "catégorie": ["cat1", "cat2", "catn"],
+        "polarité": "0.8"
+    },
+    {
+        "id": "11",
+        "commentaires": "Genesis",
+        "catégorie": ["cat1", "cat2", "catn"],
+        "polarité": "0.8"
+    },
+    {
+        "id": "12",
+        "commentaires": "Genesis",
+        "catégorie": ["cat1", "cat2", "catn"],
+        "polarité": "0.8"
+    },
+    {
+        "id": "13",
+        "commentaires": "Genesis",
+        "catégorie": ["cat1", "cat2", "catn"],
+        "polarité": "0.8"
+    },
+    {
+        "id": "14",
+        "commentaires": "Genesis",
+        "catégorie": ["cat1", "cat2", "catn"],
+        "polarité": "0.8"
+    },
+    {
+        "id": "15",
+        "commentaires": "Genesis",
+        "catégorie": ["cat1", "cat2", "catn"],
+        "polarité": "0.8"
+    },
+    {
+        "id": "16",
+        "commentaires": "Genesis",
+        "catégorie": ["cat1", "cat2", "catn"],
+        "polarité": "0.8"
+    },
+    {
+        "id": "17",
+        "commentaires": "Genesis",
+        "catégorie": ["cat1", "cat2", "catn"],
+        "polarité": "0.8"
+    },
+    {
+        "id": "18",
+        "commentaires": "Genesis",
+        "catégorie": ["cat1", "cat2", "catn"],
+        "polarité": "0.8"
+    },
+    {
+        "id": "19",
+        "commentaires": "Genesis",
+        "catégorie": ["cat1", "cat2", "catn"],
+        "polarité": "0.8"
+    },
+    {
+        "id": "20",
+        "commentaires": "Genesis",
+        "catégorie": ["cat1", "cat2", "catn"],
+        "polarité": "0.8"
+    },
+    {
+        "id": "21",
+        "commentaires": "Genesis",
+        "catégorie": ["cat1", "cat2", "catn"],
+        "polarité": "0.8"
+    },
+    {
+        "id": "22",
+        "commentaires": "Genesis",
+        "catégorie": ["cat1", "cat2", "catn"],
+        "polarité": "0.8"
+    },
+    {
+        "id": "23",
+        "commentaires": "Genesis",
+        "catégorie": ["cat1", "cat2", "catn"],
+        "polarité": "0.8"
+    },
+    {
+        "id": "24",
+        "commentaires": "Genesis",
+        "catégorie": ["cat1", "cat2", "catn"],
+        "polarité": "0.8"
+    },
+    {
+        "id": "25",
+        "commentaires": "Genesis",
+        "catégorie": ["cat1", "cat2", "catn"],
+        "polarité": "0.8"
+    },
+    {
+        "id": "26",
+        "commentaires": "Genesis",
+        "catégorie": ["cat1", "cat2", "catn"],
+        "polarité": "0.8"
+    },
+    {
+        "id": "27",
+        "commentaires": "Genesis",
+        "catégorie": ["cat1", "cat2", "catn"],
+        "polarité": "0.8"
+    },
+    {
+        "id": "28",
+        "commentaires": "Genesis",
+        "catégorie": ["cat1", "cat2", "catn"],
+        "polarité": "0.8"
+    },
+    {
+        "id": "29",
+        "commentaires": "Genesis",
+        "catégorie": ["cat1", "cat2", "catn"],
+        "polarité": "0.8"
+    },
+    {
+        "id": "30",
+        "commentaires": "Genesis",
+        "catégorie": ["cat1", "cat2", "catn"],
+        "polarité": "0.8"
+    },
+    {
+        "id": "31",
+        "commentaires": "Genesis",
+        "catégorie": ["cat1", "cat2", "catn"],
+        "polarité": "0.8"
+    },
+    {
+        "id": "32",
+        "commentaires": "Genesis",
+        "catégorie": ["cat1", "cat2", "catn"],
+        "polarité": "0.8"
+    },
+    {
+        "id": "33",
+        "commentaires": "Genesis",
+        "catégorie": ["cat1", "cat2", "catn"],
+        "polarité": "0.8"
+    },
+    {
+        "id": "34",
+        "commentaires": "Genesis",
+        "catégorie": ["cat1", "cat2", "catn"],
+        "polarité": "0.8"
+    },
+    {
+        "id": "35",
+        "commentaires": "Genesis",
+        "catégorie": ["cat1", "cat2", "catn"],
+        "polarité": "0.8"
+    },
+    {
+        "id": "36",
+        "commentaires": "Genesis",
+        "catégorie": ["cat1", "cat2", "catn"],
+        "polarité": "0.8"
+    },
+    {
+        "id": "37",
+        "commentaires": "Genesis",
+        "catégorie": ["cat1", "cat2", "catn"],
+        "polarité": "0.8"
+    },
+    {
+        "id": "38",
+        "commentaires": "Genesis",
+        "catégorie": ["cat1", "cat2", "catn"],
+        "polarité": "0.8"
+    },
+    {
+        "id": "39",
+        "commentaires": "Genesis",
+        "catégorie": ["cat1", "cat2", "catn"],
+        "polarité": "0.8"
+    },
+    {
+        "id": "40",
+        "commentaires": "Genesis",
+        "catégorie": ["cat1", "cat2", "catn"],
+        "polarité": "0.8"
+    },
+    {
+        "id": "41",
+        "commentaires": "Genesis",
+        "catégorie": ["cat1", "cat2", "catn"],
+        "polarité": "0.8"
+    },
+    {
+        "id": "42",
+        "commentaires": "Genesis",
+        "catégorie": ["cat1", "cat2", "catn"],
+        "polarité": "0.8"
+    },
+    {
+        "id": "43",
+        "commentaires": "Genesis",
+        "catégorie": ["cat1", "cat2", "catn"],
+        "polarité": "0.8"
+    },
+    {
+        "id": "44",
+        "commentaires": "Genesis",
+        "catégorie": ["cat1", "cat2", "catn"],
+        "polarité": "0.8"
+    },
+    {
+        "id": "45",
+        "commentaires": "Genesis",
+        "catégorie": ["cat1", "cat2", "catn"],
+        "polarité": "0.8"
+    },
+    {
+        "id": "46",
+        "commentaires": "Genesis",
+        "catégorie": ["cat1", "cat2", "catn"],
+        "polarité": "0.8"
+    },
+    {
+        "id": "47",
+        "commentaires": "Genesis",
+        "catégorie": ["cat1", "cat2", "catn"],
+        "polarité": "0.8"
+    },
+    {
+        "id": "48",
+        "commentaires": "Genesis",
+        "catégorie": ["cat1", "cat2", "catn"],
+        "polarité": "0.8"
+    },
+    {
+        "id": "49",
+        "commentaires": "Genesis",
+        "catégorie": ["cat1", "cat2", "catn"],
+        "polarité": "0.8"
+    },
+    {
+        "id": "50",
+        "commentaires": "Genesis",
+        "catégorie": ["cat1", "cat2", "catn"],
+        "polarité": "0.8"
+    },
+    {
+        "id": "51",
+        "commentaires": "Genesis",
+        "catégorie": ["cat1", "cat2", "catn"],
+        "polarité": "0.8"
+    }
+]
