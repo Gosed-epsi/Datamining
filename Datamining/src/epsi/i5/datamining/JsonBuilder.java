@@ -29,7 +29,7 @@ public class JsonBuilder {
     public JsonBuilder() {
         try {
 
-            Object objFile = parser.parse(new FileReader("D:\\GitRepository\\Datamining\\Datamining\\src\\epsi\\i5\\data\\commentaires_tripadvisor.json"));
+            Object objFile = parser.parse(new FileReader("/Users/Sinys/MEGAsync/EPSI/Projet/Datamining/Datamining/src/epsi/i5/data/commentaires_tripadvisor.json"));
 
             JSONArray jsonArray = (JSONArray) objFile;
             for (Object obj : jsonArray) {
