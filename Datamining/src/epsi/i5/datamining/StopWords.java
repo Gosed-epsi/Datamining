@@ -18,6 +18,7 @@ import java.io.IOException;
 public class StopWords {
 
     private String regEx = "";
+    private String regExApos = "";
 
     public StopWords() {
         try {
@@ -58,7 +59,7 @@ public class StopWords {
                 while (line3 != null) {
                     if (!line3.equals("")) {
 //                        System.out.println(line2);
-                        regEx = regEx.concat(line3 + " | ");
+                        regExApos = regExApos.concat(line3 + " | ");
                     }
                     line3 = br3.readLine();
                 }
@@ -67,6 +68,7 @@ public class StopWords {
 
                 //new Regex("^(this|is|about|after|all|also)$");
                 regEx = regEx.substring(0, regEx.length() - 1);
+                regExApos = regExApos.substring(0, regExApos.length() - 1);
                 //System.out.println(regEx);
             } catch (IOException exception) {
                 System.out.println("Erreur lors de la lecture : " + exception.getMessage());
@@ -83,6 +85,14 @@ public class StopWords {
 
     public void setRegEx(String regEx) {
         this.regEx = regEx;
+    }
+
+    public String getRegExApos() {
+        return regExApos;
+    }
+
+    public void setRegExApos(String regExApos) {
+        this.regExApos = regExApos;
     }
 
 }

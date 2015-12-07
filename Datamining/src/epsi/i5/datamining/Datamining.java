@@ -40,10 +40,15 @@ public class Datamining {
 
             for (String word : entity.getCommentaires().split(" ")) {
                 //System.out.println(stopword.getRegEx());
+                for (String stopApo : stopword.getRegExApos().replace("|", " ").split(" ")) {
+                    word = word.replaceAll(stopApo, "");
+//                    System.out.println(stopApo);
+                }
+
+                word = word.replace(".", "").replace(",", "").replace("!", "").replace("(", "").replace(")", "").replace("'", "").replace(":", "").trim();
+
                 for (String stop : stopword.getRegEx().replace("|", " ").split(" ")) {
                     //System.out.println(stop);
-
-                    word = word.replace(".", "").replace(",", "").replace("!", "").replace("(", "").replace(")", "").trim();
                     if ((word.equalsIgnoreCase(stop)) && !word.equalsIgnoreCase("")) {
                         bStopWord = true;
                     }

@@ -34,7 +34,7 @@ public class JsonBuilder {
             JSONArray jsonArray = (JSONArray) objFile;
             for (Object obj : jsonArray) {
                 JSONObject jsonObject = (JSONObject) obj;
-                JsonEntity commentaire = new JsonEntity();
+                JsonEntity commentaire = new DataEntity();
                 commentaire.setId((String) jsonObject.get("id"));
                 commentaire.setCommentaires((String) jsonObject.get("commentaires"));
                 commentaire.setPolarite((String) jsonObject.get("polarité"));
