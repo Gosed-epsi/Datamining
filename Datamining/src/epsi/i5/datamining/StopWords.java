@@ -17,7 +17,7 @@ import java.io.IOException;
  */
 public class StopWords {
 
-    String regEx = "";
+    private String regEx = "";
 
     public StopWords() {
         try {
@@ -33,7 +33,7 @@ public class StopWords {
                 while (line1 != null) {
                     if (!line1.equals("")) {
 //                        System.out.println(line1);
-                        regEx = regEx.concat(line1 + "|");
+                        regEx = regEx.concat(line1 + " | ");
                     }
                     line1 = br1.readLine();
                 }
@@ -44,7 +44,7 @@ public class StopWords {
                 while (line2 != null) {
                     if (!line2.equals("")) {
 //                        System.out.println(line2);
-                        regEx = regEx.concat(line2 + "|");
+                        regEx = regEx.concat(line2 + " | ");
                     }
                     line2 = br2.readLine();
                 }
@@ -53,7 +53,7 @@ public class StopWords {
 
                 //new Regex("^(this|is|about|after|all|also)$");
                 regEx = regEx.substring(0, regEx.length() - 1);
-//                System.out.println(regEx);
+                System.out.println(regEx);
             } catch (IOException exception) {
                 System.out.println("Erreur lors de la lecture : " + exception.getMessage());
             }
