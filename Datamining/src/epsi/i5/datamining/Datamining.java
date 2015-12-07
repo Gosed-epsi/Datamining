@@ -6,10 +6,10 @@
 package epsi.i5.datamining;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import java.util.HashMap;
-import java.util.Map.Entry;
+import java.util.List;
 import org.json.simple.parser.ParseException;
 
 /**
@@ -22,6 +22,8 @@ public class Datamining {
 
     private static Pattern pattern;
     private static Matcher matcher;
+    private static List<DataEntity> lCommentaires;
+    private static HashMap<String, Integer> mapCategorie = new HashMap();
 
     /**
      * @param args the command line arguments
@@ -32,11 +34,11 @@ public class Datamining {
 
         JsonBuilder builder = new JsonBuilder();
         StopWords stopword = new StopWords();
-        String[] tabStopWord = stopword.getRegEx().split("|");
-        HashMap< Integer, String> map = new HashMap<>();
         int cpt = 0;
         boolean bStopWord = false;
-        for (JsonEntity entity : builder.listeCommentaires) {
+        lCommentaires = builder.listeCommentaires;
+        for (DataEntity entity : builder.listeCommentaires) {
+            String lTrie = "";
 
             for (String word : entity.getCommentaires().split(" ")) {
                 //System.out.println(stopword.getRegEx());
@@ -54,17 +56,14 @@ public class Datamining {
                     }
                 }
                 if (bStopWord == false) {
-                    map.put(cpt, word);
+                    lTrie = lTrie + " " + word;
                 }
                 bStopWord = false;
                 cpt++;
             }
-
-            //System.out.println(stopword.regEx);
-        }
-
-        for (Entry mapentry : map.entrySet()) {
-            System.out.println(mapentry.getValue() + " ");
+            entity.setCommentaireTrie(lTrie);
+            System.out.println(entity.getCommentaires());
+            System.out.println(entity.getCommentaireTrie());
         }
 
     }

@@ -24,7 +24,7 @@ import org.json.simple.parser.ParseException;
 public class JsonBuilder {
 
     private JSONParser parser = new JSONParser();
-    public List<JsonEntity> listeCommentaires = new ArrayList<>();
+    public List<DataEntity> listeCommentaires = new ArrayList<>();
 
     public JsonBuilder() {
         try {
@@ -34,7 +34,7 @@ public class JsonBuilder {
             JSONArray jsonArray = (JSONArray) objFile;
             for (Object obj : jsonArray) {
                 JSONObject jsonObject = (JSONObject) obj;
-                JsonEntity commentaire = new DataEntity();
+                DataEntity commentaire = new DataEntity();
                 commentaire.setId((String) jsonObject.get("id"));
                 commentaire.setCommentaires((String) jsonObject.get("commentaires"));
                 commentaire.setPolarite((String) jsonObject.get("polarité"));
