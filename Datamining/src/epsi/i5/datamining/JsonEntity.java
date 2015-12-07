@@ -5,6 +5,7 @@
  */
 package epsi.i5.datamining;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -16,7 +17,7 @@ public class JsonEntity {
     private String id;
     private String commentaires;
     private String polarite;
-    private List<String> categorie;
+    private List<String> categorie = new ArrayList();
 
     public String getId() {
         return id;

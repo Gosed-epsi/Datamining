@@ -8,7 +8,7 @@ package epsi.i5.datamining;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+import java.util.Map.Entry;
 
 /**
  *
@@ -17,16 +17,18 @@ import java.util.Map;
 public class Traitement {
 
     StopWords stopWords = new StopWords();
-    private List<DataEntity> lCommentaires;
     private HashMap<String, HashMap<String, Integer>> mapCategorie = new HashMap();
     private List<String> words = new ArrayList<>();
+    private List<List> jsonCat = new ArrayList();
+    private List<List> findCom = new ArrayList();
 
     public void traitement() {
         JsonBuilder builder = new JsonBuilder();
         StopWords stopword = new StopWords();
         boolean bStopWord = false;
-        lCommentaires = builder.listeCommentaires;
-        for (DataEntity entity : builder.listeCommentaires) {
+        for (DataEntity entity : builder.getFullCommentaites()) {
+            jsonCat.add(entity.getCategorie());
+
             String lTrie = "";
 
             for (String cat : entity.getCategorie()) {
@@ -77,16 +79,72 @@ public class Traitement {
 //            System.out.println(entity.getCommentaireTrie());
         }
 
-        for (Map.Entry entry : mapCategorie.entrySet()) {
-            System.out.println(entry);
-        }
-
+//        for (Map.Entry entry : mapCategorie.entrySet()) {
+//            System.out.println(entry);
+//        }
+        //Recherche de la valeur max de chaque mots
         for (String word : words) {
             Integer max = 0;
-            HashMap catMax;
-            for (Map.Entry entry : mapCategorie.entrySet()) {
-//                if ()
+            for (Entry entry : mapCategorie.entrySet()) {
+                HashMap mapDonnee = (HashMap) entry.getValue();
+                if (mapDonnee.containsKey(word)) {
+                    if (max < (Integer) mapDonnee.get(word)) {
+                        max = (Integer) mapDonnee.get(word);
+                    }
+                }
             }
+
+//            System.out.println(max);
+            //Suppression des mots si ce n'est pas al valuer max
+            for (Entry entry : mapCategorie.entrySet()) {
+                HashMap mapDonnee = (HashMap) entry.getValue();
+                if (mapDonnee.get(word) != max) {
+                    mapDonnee.remove(word);
+                }
+                entry.setValue(mapDonnee);
+            }
+        }
+
+//        for (Entry entry : mapCategorie.entrySet()) {
+//            System.out.println(entry);
+//        }
+        List<DataEntity> commentairesFinaux = builder.getSimpleCmmentaites();
+        for (DataEntity commentaire : commentairesFinaux) {
+            List<String> categorie;
+            for (String word : commentaire.getCommentaires().split(" ")) {
+                //System.out.println(stopword.getRegEx());
+                for (String stopApo : stopword.getRegExApos().replace("|", " ").split(" ")) {
+                    word = word.replaceAll(stopApo, "");
+//                    System.out.println(stopApo);
+                }
+
+                word = word.replace(".", " ").replace(",", " ").replace("!", " ").replace("(", "").replace(")", "").replace("'", "").replace(":", "").trim();
+
+                for (String stop : stopword.getRegEx().replace("|", " ").split(" ")) {
+                    //System.out.println(stop);
+                    if ((word.equalsIgnoreCase(stop)) && !word.equalsIgnoreCase("")) {
+                        bStopWord = true;
+                    }
+                }
+                if (bStopWord == false) {
+                    for (Entry entry : mapCategorie.entrySet()) {
+                        HashMap mapDonnee = (HashMap) entry.getValue();
+                        if (mapDonnee.containsKey(word) && !"".equals(word)) {
+                            categorie = commentaire.getCategorie();
+                            if (!categorie.contains((String) entry.getKey())) {
+                                categorie.add((String) entry.getKey());
+                            }
+                            commentaire.setCategorie(categorie);
+                        }
+                    }
+                }
+                bStopWord = false;
+            }
+            findCom.add(commentaire.getCategorie());
+        }
+        for (int i = 0; i < jsonCat.size(); i++) {
+            System.out.println(jsonCat.get(i));
+            System.out.println(findCom.get(i));
         }
     }
 

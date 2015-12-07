@@ -24,11 +24,10 @@ import org.json.simple.parser.ParseException;
 public class JsonBuilder {
 
     private JSONParser parser = new JSONParser();
-    public List<DataEntity> listeCommentaires = new ArrayList<>();
 
-    public JsonBuilder() {
+    public List<DataEntity> getFullCommentaites() {
+        List<DataEntity> listeCommentaires = new ArrayList();
         try {
-
             Object objFile = parser.parse(new FileReader("src/epsi/i5/data/commentaires_tripadvisor.json"));
 
             JSONArray jsonArray = (JSONArray) objFile;
@@ -49,6 +48,31 @@ public class JsonBuilder {
         } catch (IOException | ParseException ex) {
             Logger.getLogger(JsonBuilder.class.getName()).log(Level.SEVERE, null, ex);
         }
+        return listeCommentaires;
+    }
+
+    public List<DataEntity> getSimpleCmmentaites() {
+        List<DataEntity> listeCommentaires = new ArrayList();
+        try {
+            Object objFile = parser.parse(new FileReader("src/epsi/i5/data/commentaires_tripadvisor.json"));
+
+            JSONArray jsonArray = (JSONArray) objFile;
+            for (Object obj : jsonArray) {
+                JSONObject jsonObject = (JSONObject) obj;
+                DataEntity commentaire = new DataEntity();
+                commentaire.setId((String) jsonObject.get("id"));
+                commentaire.setCommentaires((String) jsonObject.get("commentaires"));
+
+                listeCommentaires.add(commentaire);
+            }
+        } catch (FileNotFoundException e) {
+            System.out.println("Une erreur est survenue lors de lecture du ficheir JSON");
+            System.out.println("Cause : " + e.getCause());
+            System.out.println("Message : " + e.getMessage());
+        } catch (IOException | ParseException ex) {
+            Logger.getLogger(JsonBuilder.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return listeCommentaires;
     }
 
 }
