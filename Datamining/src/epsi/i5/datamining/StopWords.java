@@ -21,16 +21,16 @@ public class StopWords {
 
     public StopWords() {
         try {
-            File f1 = new File("/Users/Sinys/MEGAsync/EPSI/Projet/Datamining/Datamining/src/epsi/i5/data/stop-words_french_1_fr.txt");
-            File f2 = new File("/Users/Sinys/MEGAsync/EPSI/Projet/Datamining/Datamining/src/epsi/i5/data/stop-words_french_2_fr.txt");
-            File f3 = new File("/Users/Sinys/MEGAsync/EPSI/Projet/Datamining/Datamining/src/epsi/i5/data/stop-words_french.txt");
+            File f1 = new File("src/epsi/i5/data/stop-words_french_1_fr.txt");
+            File f2 = new File("src/epsi/i5/data/stop-words_french_2_fr.txt");
+            File f3 = new File("src/epsi/i5/data/stop-words_french.txt");
             FileReader fr1 = new FileReader(f1);
             FileReader fr2 = new FileReader(f2);
             FileReader fr3 = new FileReader(f3);
             BufferedReader br1 = new BufferedReader(fr1);
             BufferedReader br2 = new BufferedReader(fr2);
             BufferedReader br3 = new BufferedReader(fr3);
-            
+
             try {
                 String line1 = br1.readLine();
                 while (line1 != null) {
@@ -53,7 +53,7 @@ public class StopWords {
                 }
                 br2.close();
                 fr2.close();
-                
+
                 String line3 = br3.readLine();
                 while (line3 != null) {
                     if (!line3.equals("")) {
