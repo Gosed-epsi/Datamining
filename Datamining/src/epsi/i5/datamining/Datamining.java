@@ -11,6 +11,10 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.util.HashMap;
 import java.util.Map;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
 /**
  *
@@ -25,7 +29,7 @@ public class Datamining {
      * @throws epsi.i5.datamining.repustate.RepustateException
      * @throws org.json.simple.parser.ParseException
      */
-    public static void main(String[] args) throws IOException, MalformedURLException, RepustateException {
+    public static void main(String[] args) throws IOException, MalformedURLException, RepustateException, ParseException {
 
         Traitement traitement = new Traitement();
         traitement.traitement();
@@ -40,6 +44,16 @@ public class Datamining {
         map.put("text6", "Hotel tres bien placé pour ceux qui arrivent et repartent de saint pancras. Il a été entièrement refait, est assez moder est bien décoré. Le restaurant est sympa, lumineux et le petit-déjeuner tres copieux et bons. Les chambres sont petites et moins design, mais fonctionnelles et confortables.");
         map.put("text7", "Impossibilité de téléphoner sur Londres de ma chambre: problème non résolu en 3 jours! Très difficile de commander des boissons au bar, attente ++ et obligation d'aller chercher ses boisons... Des détails certes, mais à revoir d'urgence!");
         System.out.println(RepustateClient.getSentimentBulk(map));
+        JSONParser jp = new JSONParser();
+        JSONObject json = (JSONObject) jp.parse(RepustateClient.getSentimentBulk(map));
+        System.out.println(json.get("results"));
+        JSONArray jsonArray = (JSONArray) json.get("results");
+        for (Object obj : jsonArray) {
+            JSONObject jsonObject = (JSONObject) obj;
+            String id = (String) jsonObject.get("id");
+            Double score = new Double(jsonObject.get("score").toString());
+            System.out.println(id + " : " + score * 10);
+        }
     }
 
 }
