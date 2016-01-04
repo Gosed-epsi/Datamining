@@ -14,16 +14,25 @@ import java.util.List;
  */
 public class JsonEntity {
 
-    private String id;
+    private Object id;
     private String commentaires;
-    private String polarite;
-    private List<String> categorie = new ArrayList();
+    private Object polarite;
+    private List<String> listeCategorie = new ArrayList();
+    private String simpleCategorie;
 
-    public String getId() {
+    public String getSimpleCategorie() {
+        return simpleCategorie;
+    }
+
+    public void setSimpleCategorie(String simpleCategorie) {
+        this.simpleCategorie = simpleCategorie;
+    }
+
+    public Object getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Object id) {
         this.id = id;
     }
 
@@ -35,20 +44,20 @@ public class JsonEntity {
         this.commentaires = commentaires;
     }
 
-    public String getPolarite() {
+    public Object getPolarite() {
         return polarite;
     }
 
-    public void setPolarite(String polarite) {
+    public void setPolarite(Object polarite) {
         this.polarite = polarite;
     }
 
-    public List<String> getCategorie() {
-        return categorie;
+    public List<String> getListeCategorie() {
+        return listeCategorie;
     }
 
-    public void setCategorie(List<String> categorie) {
-        this.categorie = categorie;
+    public void setListeCategorie(List<String> listeCategorie) {
+        this.listeCategorie = listeCategorie;
     }
 
 }

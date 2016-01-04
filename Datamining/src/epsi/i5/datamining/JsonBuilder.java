@@ -25,24 +25,41 @@ public class JsonBuilder {
 
     private JSONParser parser = new JSONParser();
 
-    public List<DataEntity> getFullCommentaites() {
+    public List<DataEntity> getFullCommentaires() {
         List<DataEntity> listeCommentaires = new ArrayList();
         try {
+//            Object objFile = parser.parse(new FileReader("src/epsi/i5/data/catha2.json"));
+//            Object objFile = parser.parse(new FileReader("src/epsi/i5/data/chasta.json"));
             Object objFile = parser.parse(new FileReader("src/epsi/i5/data/commentaires_tripadvisor.json"));
 
             JSONArray jsonArray = (JSONArray) objFile;
             for (Object obj : jsonArray) {
                 JSONObject jsonObject = (JSONObject) obj;
                 DataEntity commentaire = new DataEntity();
-                commentaire.setId((String) jsonObject.get("id"));
+                commentaire.setId(jsonObject.get("id"));
                 commentaire.setCommentaires((String) jsonObject.get("commentaires"));
+//                commentaire.setCommentaires((String) jsonObject.get("comment"));
                 commentaire.setPolarite((String) jsonObject.get("polarité"));
-                commentaire.setCategorie((List) jsonObject.get("catégorie"));
+//                commentaire.setPolarite(jsonObject.get("rating"));
+                try {
+                    commentaire.setListeCategorie((List) jsonObject.get("catégorie"));
+//                    commentaire.setListeCategorie((List) jsonObject.get("categories"));
+                } catch (Exception e) {
+                    System.out.println("Message : " + e.getMessage());
+                    commentaire.setListeCategorie(null);
+                }
+                try {
+                    commentaire.setSimpleCategorie((String) jsonObject.get("catégorie"));
+//                    commentaire.setSimpleCategorie((String) jsonObject.get("categories"));
+                } catch (Exception e) {
+                    System.out.println("Message : " + e.getMessage());
+                    commentaire.setSimpleCategorie(null);
+                }
 
                 listeCommentaires.add(commentaire);
             }
         } catch (FileNotFoundException e) {
-            System.out.println("Une erreur est survenue lors de lecture du ficheir JSON");
+            System.out.println("Une erreur est survenue lors de lecture du fichier JSON");
             System.out.println("Cause : " + e.getCause());
             System.out.println("Message : " + e.getMessage());
         } catch (IOException | ParseException ex) {
@@ -51,17 +68,20 @@ public class JsonBuilder {
         return listeCommentaires;
     }
 
-    public List<DataEntity> getSimpleCmmentaites() {
+    public List<DataEntity> getSimpleCommentaires() {
         List<DataEntity> listeCommentaires = new ArrayList();
         try {
+//            Object objFile = parser.parse(new FileReader("src/epsi/i5/data/catha2.json"));
+//            Object objFile = parser.parse(new FileReader("src/epsi/i5/data/chasta.json"));
             Object objFile = parser.parse(new FileReader("src/epsi/i5/data/commentaires_tripadvisor.json"));
 
             JSONArray jsonArray = (JSONArray) objFile;
             for (Object obj : jsonArray) {
                 JSONObject jsonObject = (JSONObject) obj;
                 DataEntity commentaire = new DataEntity();
-                commentaire.setId((String) jsonObject.get("id"));
+                commentaire.setId(jsonObject.get("id"));
                 commentaire.setCommentaires((String) jsonObject.get("commentaires"));
+//                commentaire.setCommentaires((String) jsonObject.get("comment"));
 
                 listeCommentaires.add(commentaire);
             }

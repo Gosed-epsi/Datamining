@@ -19,21 +19,35 @@ public class Traitement {
     StopWords stopWords = new StopWords();
     private HashMap<String, HashMap<String, Integer>> mapCategorie = new HashMap();
     private List<String> words = new ArrayList<>();
-    private List<List> jsonCat = new ArrayList();
+    private List<List> jsonListCat = new ArrayList();
+    private List<String> jsonSimpleCat = new ArrayList();
     private List<List> findCom = new ArrayList();
+    private float fiabilite = 0;
 
     public void traitement() {
         JsonBuilder builder = new JsonBuilder();
         StopWords stopword = new StopWords();
         boolean bStopWord = false;
-        for (DataEntity entity : builder.getFullCommentaites()) {
-            jsonCat.add(entity.getCategorie());
+        for (DataEntity entity : builder.getFullCommentaires()) {
+            if (entity.getListeCategorie() == null) {
+                jsonSimpleCat.add(entity.getSimpleCategorie());
+                jsonListCat = null;
+            } else {
+                jsonListCat.add(entity.getListeCategorie());
+                jsonSimpleCat = null;
+            }
 
             String lTrie = "";
 
-            for (String cat : entity.getCategorie()) {
-                if (!mapCategorie.containsKey(cat)) {
-                    mapCategorie.put(cat, new HashMap<String, Integer>());
+            if (entity.getSimpleCategorie() == null) {
+                for (String cat : entity.getListeCategorie()) {
+                    if (!mapCategorie.containsKey(cat)) {
+                        mapCategorie.put(cat, new HashMap<String, Integer>());
+                    }
+                }
+            } else {
+                if (!mapCategorie.containsKey(entity.getSimpleCategorie())) {
+                    mapCategorie.put(entity.getSimpleCategorie(), new HashMap<String, Integer>());
                 }
             }
 
@@ -55,15 +69,26 @@ public class Traitement {
                 if (bStopWord == false && !"".equals(word)) {
                     lTrie = lTrie + " " + word;
 
-                    //Remplissage de la map
-                    for (String cat : entity.getCategorie()) {
-                        if (mapCategorie.get(cat).containsKey(word)) {
-                            Integer occurs = mapCategorie.get(cat).get(word);
+                    if (entity.getSimpleCategorie() == null) {
+                        //Remplissage de la map
+                        for (String cat : entity.getListeCategorie()) {
+                            if (mapCategorie.get(cat).containsKey(word)) {
+                                Integer occurs = mapCategorie.get(cat).get(word);
+                                occurs++;
+                                mapCategorie.get(cat).remove(word);
+                                mapCategorie.get(cat).put(word, occurs);
+                            } else {
+                                mapCategorie.get(cat).put(word, 1);
+                            }
+                        }
+                    } else {
+                        if (mapCategorie.get(entity.getSimpleCategorie()).containsKey(word)) {
+                            Integer occurs = mapCategorie.get(entity.getSimpleCategorie()).get(word);
                             occurs++;
-                            mapCategorie.get(cat).remove(word);
-                            mapCategorie.get(cat).put(word, occurs);
+                            mapCategorie.get(entity.getSimpleCategorie()).remove(word);
+                            mapCategorie.get(entity.getSimpleCategorie()).put(word, occurs);
                         } else {
-                            mapCategorie.get(cat).put(word, 1);
+                            mapCategorie.get(entity.getSimpleCategorie()).put(word, 1);
                         }
                     }
 
@@ -108,7 +133,7 @@ public class Traitement {
 //        for (Entry entry : mapCategorie.entrySet()) {
 //            System.out.println(entry);
 //        }
-        List<DataEntity> commentairesFinaux = builder.getSimpleCmmentaites();
+        List<DataEntity> commentairesFinaux = builder.getSimpleCommentaires();
         for (DataEntity commentaire : commentairesFinaux) {
             List<String> categorie;
             for (String word : commentaire.getCommentaires().split(" ")) {
@@ -130,22 +155,48 @@ public class Traitement {
                     for (Entry entry : mapCategorie.entrySet()) {
                         HashMap mapDonnee = (HashMap) entry.getValue();
                         if (mapDonnee.containsKey(word) && !"".equals(word)) {
-                            categorie = commentaire.getCategorie();
+                            categorie = commentaire.getListeCategorie();
                             if (!categorie.contains((String) entry.getKey())) {
                                 categorie.add((String) entry.getKey());
                             }
-                            commentaire.setCategorie(categorie);
+                            commentaire.setListeCategorie(categorie);
                         }
                     }
                 }
                 bStopWord = false;
             }
-            findCom.add(commentaire.getCategorie());
+            findCom.add(commentaire.getListeCategorie());
         }
-        for (int i = 0; i < jsonCat.size(); i++) {
-            System.out.println(jsonCat.get(i));
-            System.out.println(findCom.get(i));
+        for (int i = 0; i < findCom.size(); i++) {
+
+            if (jsonListCat == null) {
+                System.out.println("Expected : " + jsonSimpleCat.get(i));
+            } else {
+                System.out.println("Expected : " + jsonListCat.get(i));
+            }
+
+            System.out.println("Found    : " + findCom.get(i));
+
+            if (jsonListCat == null) {
+                if (findCom.get(i).contains(jsonSimpleCat.get(i))) {
+                    System.out.println(true);
+                    fiabilite++;
+                } else {
+                    System.out.println(false);
+                }
+            } else {
+                if (jsonListCat.get(i).containsAll(findCom.get(i))) {
+                    System.out.println(true);
+                    fiabilite++;
+                } else {
+                    System.out.println(false);
+                }
+            }
+
+            System.out.println("****************************");
         }
+        fiabilite = (fiabilite * 100) / findCom.size();
+        System.out.println(fiabilite + "%");
     }
 
 }

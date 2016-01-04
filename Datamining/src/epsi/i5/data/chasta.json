@@ -1,0 +1,276 @@
+[
+    {
+        "id" : "1",
+        "commentaires" : "Une petite dame nous accueille sans le sourire mais surtout sans enthousiasme, ça devait l'énerver d'avoir des clients un mardi soir ... 3 tables.",
+        "catégorie" : "SERVICE",
+        "polarité" : "0"
+    },
+    {
+        "id" : "2",
+        "commentaires" : "Bref, passons ....",
+        "catégorie" : "GENERAL",
+        "polarité" : "0"
+    },
+    {
+        "id" : "3",
+        "commentaires" : "On commande quand même, lasagnes pâteuses, avec beaucoup de fromage sans saveur sur le dessus, ce qui atténuait l'acidité du concentré de tomates ... !",
+        "catégorie" : "QUALITE",
+        "polarité" : "0.3"
+    },
+    {
+        "id" : "4",
+        "commentaires" : "Dessert tout sauf maison .... !",
+        "catégorie" : "QUALITE",
+        "polarité" : "0.2"
+    },
+    {
+        "id" : "5",
+        "commentaires" : "Je ne conseille vraiment pas, même si votre frigo est vide et que les autres restau d'à côté sont pleins et que vous ne savez pas où aller .....",
+        "catégorie" : "GENERAL",
+        "polarité" : "0"
+    },
+    {
+        "id" : "6",
+        "commentaires" : "Il vaut encore mieux aller au Mc Do !",
+        "catégorie" : "GENERAL",
+        "polarité" : "0"
+    },
+    {
+        "id" : "7",
+        "commentaires" : "Petit restaurant au décor soigné, aux tables bien mises.",
+        "catégorie" : "AMBIENCE",
+        "polarité" : "0.8"
+    },
+    {
+        "id" : "8",
+        "commentaires" : "L'accueil manque un peu de chaleur, le service qui suivra également.",
+        "catégorie" : "SERVICE",
+        "polarité" : "0.2"
+    },
+    {
+        "id" : "9",
+        "commentaires" : "Les différents menus à base de 'Mezzés' se ressemblent.",
+        "catégorie" : "MENU",
+        "polarité" : "0.5"
+    },
+    {
+        "id" : "10",
+        "commentaires" : "Les spécialités sont réussies pour certaines (hoummous, taboulé..), moins réussies pour d'autres comme par exemple la purée d'aubergine assez fade ou ces boulettes ayant un arrière goût 'brûlé'.",
+        "catégorie" : "QUALITE",
+        "polarité" : "0.5"
+    },
+    {
+        "id" : "11",
+        "commentaires" : "Nous sommes dans le classique du genre avec peu de surprise",
+        "catégorie" : "MENU",
+        "polarité" : "0.2"
+    },
+    {
+        "id" : "12",
+        "commentaires" : "Des prix plutôt élevés.",
+        "catégorie" : "PRIX",
+        "polarité" : "0.2"
+    },
+    {
+        "id" : "13",
+        "commentaires" : "Mention spéciale toutefois au geste du restaurateur qui a offert une partie des desserts.",
+        "catégorie" : "SERVICE",
+        "polarité" : "0.9"
+    },
+    {
+        "id" : "14",
+        "commentaires" : "une bonne soirée tout de même",
+        "catégorie" : "GENERAL",
+        "polarité" : "0.8"
+    },
+    {
+        "id" : "15",
+        "commentaires" : "Un effort souhaité sur les goûts et saveurs méditerranéennes !",
+        "catégorie" : "QUALITE",
+        "polarité" : "0.3"
+    },
+    {
+        "id" : "16",
+        "commentaires" : "J'ai tout aimé ... :-)",
+        "catégorie" : "GENERAL",
+        "polarité" : "1"
+    },
+    {
+        "id" : "17",
+        "commentaires" : "Accueil et service sont agréables et efficaces",
+        "catégorie" : "GENERAL",
+        "polarité" : "1"
+    },
+    {
+        "id" : "17",
+        "commentaires" : "Accueil et service sont agréables et efficaces",
+        "catégorie" : "GENERAL",
+        "polarité" : "1"
+    },
+    {
+        "id" : "18",
+        "commentaires" : "Tous les plats sont bons avec une mention spéciale pour le cassoulet breton",
+        "catégorie" : "QUALITE",
+        "polarité" : "1"
+    },
+    {
+        "id" : "19",
+        "commentaires" : "Restaurant bondé le midi mieux vaut arriver tôt",
+        "catégorie" : "GENERAL",
+        "polarité" : "0.2"
+    },
+    {
+        "id" : "20",
+        "commentaires" : "Accueil glacial, à peine installés et la carte en main que l'on vient prendre commande.",
+        "catégorie" : "SERVICE",
+        "polarité" : "0.2"
+    },
+    {
+        "id" : "21",
+        "commentaires" : "Accueil glacial, à peine installés et la carte en main que l'on vient prendre commande.",
+        "catégorie" : "SERVICE",
+        "polarité" : "0.1"
+    },
+    {
+        "id" : "22",
+        "commentaires" : "Comptez trois quarts d'heure pour avoir uniquement le plat.",
+        "catégorie" : "SERVICE",
+        "polarité" : "0"
+    },
+    {
+        "id" : "23",
+        "commentaires" : "D'ailleurs plat qui nous est grossièrement transmit de mains à mains.",
+        "catégorie" : "SERVICE",
+        "polarité" : "0"
+    },
+    {
+        "id" : "24",
+        "commentaires" : "Je n'appelle pas ça un service digne d'un restaurants.",
+        "catégorie" : "SERVICE",
+        "polarité" : "0"
+    },
+    {
+        "id" : "25",
+        "commentaires" : "Une viande qui n'est pas cuite comme à notre demande : saignante et non à point comme demandé.",
+        "catégorie" : "QUALITE",
+        "polarité" : "0"
+    },
+    {
+        "id" : "26",
+        "commentaires" : "Aucune commande de dessert n'a été prise après une demie heure d'attente à la fin du plat. Nous avons donc décidés de partir sans dessert !",
+        "catégorie" : "SERVICE",
+        "polarité" : "0"
+    },
+    {
+        "id" : "27",
+        "commentaires" : "Départ aussi désagréable que l'accueil.",
+        "catégorie" : "GENERAL",
+        "polarité" : "0"
+    },
+    {
+        "id" : "28",
+        "commentaires" : "Déçus de notre soirée car j'ai connu cette taverne sous de meilleurs jours.",
+        "catégorie" : "GENERAL",
+        "polarité" : "0"
+    },
+    {
+        "id" : "29",
+        "commentaires" : "Beaucoup trop onéreux pour la qualité des plats.",
+        "catégorie" : "PRIX",
+        "polarité" : "0"
+    },
+    {
+        "id" : "30",
+        "commentaires" : "Un rapport qualité/prix qui se passe donc de commentaire.",
+        "catégorie" : "PRIX",
+        "polarité" : "0"
+    },
+    {
+        "id" : "31",
+        "commentaires" : "Je déconseille +++ .",
+        "catégorie" : "GENERAL",
+        "polarité" : "0"
+    },
+    {
+        "id" : "32",
+        "commentaires" : "Entrée: Saint Jacques en brochettes de qualité moyenne.",
+        "catégorie" : "QUALITE",
+        "polarité" : "0.3"
+    },
+    {
+        "id" : "33",
+        "commentaires" : "On ne change pas les couverts...",
+        "catégorie" : "SERVICE",
+        "polarité" : "0.2"
+    },
+    {
+        "id" : "34",
+        "commentaires" : "Plat: une pièce de boeuf grillée (pas très tendre), sans sauce,",
+        "catégorie" : "QUALITE",
+        "polarité" : "0.2"
+    },
+    {
+        "id" : "35",
+        "commentaires" : "avec de la purée de carottes (très bonne)",
+        "catégorie" : "QUALITE",
+        "polarité" : "0.9"
+    },
+    {
+        "id" : "36",
+        "commentaires" : "des brocolis et des pommes de terre pas cuites au milieu",
+        "catégorie" : "QUALITE",
+        "polarité" : "0.2"
+    },
+    {
+        "id" : "37",
+        "commentaires" : "Nous avons entendu ce dernier dire depuis la cuisine que si on n'était pas content on n'avait qu'à les manger en purée!...",
+        "catégorie" : "SERVICE",
+        "polarité" : "0.1"
+    },
+    {
+        "id" : "38",
+        "commentaires" : "Dessert: mousse aux 2 chocolats, bonne mais beaucoup trop sucrée.",
+        "catégorie" : "QUALITE",
+        "polarité" : "0.7"
+    },
+    {
+        "id" : "39",
+        "commentaires" : "la salle est bien",
+        "catégorie" : "GENERAL",
+        "polarité" : "0.7"
+    },
+    {
+        "id" : "40",
+        "commentaires" : "les WC ne sont pas à la hauteur",
+        "catégorie" : "GENERAL",
+        "polarité" : "0.7"
+    },
+    {
+        "id" : "41",
+        "commentaires" : "L'établissement dispose aussi d'une jolie terrasse.",
+        "catégorie" : "GENERAL",
+        "polarité" : "0.7"
+    },
+    {
+        "id" : "42",
+        "commentaires" : "un cuisinier mal embouché",
+        "catégorie" : "GENERAL",
+        "polarité" : "0.7"
+    },
+    {
+        "id" : "42",
+        "commentaires" : "un repas peut-être bio mais pas gastronomique (on peut manger bio sans être forcément au régime...)",
+        "catégorie" : "QUALITE",
+        "polarité" : "0.3"
+    },
+    {
+        "id" : "43",
+        "commentaires" : "le tout pour un prix trop élevé",
+        "catégorie" : "PRIX",
+        "polarité" : "0.3"
+    }
+    
+    
+    
+]
+
