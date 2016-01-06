@@ -25,16 +25,17 @@ import org.json.simple.parser.ParseException;
  */
 public class Traitement {
 
+    JsonBuilder builder = new JsonBuilder();
     StopWords stopWords = new StopWords();
-    private HashMap<String, HashMap<String, Integer>> mapCategorie = new HashMap();
-    private List<String> words = new ArrayList<>();
+    private final HashMap<String, HashMap<String, Integer>> mapCategorie = new HashMap();
+    private final List<String> words = new ArrayList<>();
     private List<List> jsonListCat = new ArrayList();
     private List<String> jsonSimpleCat = new ArrayList();
-    private List<List> findCom = new ArrayList();
+    private final List<String> polarites = new ArrayList();
+    private final List<List> findCom = new ArrayList();
     private float fiabilite = 0;
 
-    public void traitement() {
-        JsonBuilder builder = new JsonBuilder();
+    public void traitement() throws IOException, MalformedURLException, RepustateException, ParseException {
         StopWords stopword = new StopWords();
         boolean bStopWord = false;
         for (DataEntity entity : builder.getFullCommentaires()) {
@@ -176,6 +177,9 @@ public class Traitement {
             }
             findCom.add(commentaire.getListeCategorie());
         }
+        
+        calculAllpolarite();
+        
         for (int i = 0; i < findCom.size(); i++) {
 
             if (jsonListCat == null) {
@@ -201,6 +205,8 @@ public class Traitement {
                     System.out.println(false);
                 }
             }
+            
+            System.out.println("Raiting : " + polarites.get(i));
 
             System.out.println("****************************");
         }
@@ -210,22 +216,30 @@ public class Traitement {
 
     public String calculPolarite(String commentaire) throws IOException, MalformedURLException, RepustateException, ParseException {
         String polarite;
-        Double score = new Double("");
+        Double score = null;
         Map map = new HashMap();
         map.put("text1", commentaire);
-        System.out.println(RepustateClient.getSentimentBulk(map));
+//        System.out.println(RepustateClient.getSentimentBulk(map));
         JSONParser jp = new JSONParser();
         JSONObject json = (JSONObject) jp.parse(RepustateClient.getSentimentBulk(map));
-        System.out.println(json.get("results"));
+//        System.out.println(json.get("results"));
         JSONArray jsonArray = (JSONArray) json.get("results");
         for (Object obj : jsonArray) {
             JSONObject jsonObject = (JSONObject) obj;
             score = new Double(jsonObject.get("score").toString());
             score = score * 10;
-            System.out.println("Polarité : " + score);
+//            System.out.println("Polarité : " + score);
         }
         polarite = score.toString();
         return polarite;
+    }
+    
+    public void calculAllpolarite() throws IOException, MalformedURLException, RepustateException, ParseException {
+        
+        for (DataEntity de : builder.getSimpleCommentaires()) {
+            polarites.add(calculPolarite(de.getCommentaires()));
+        }
+        
     }
 
 }
