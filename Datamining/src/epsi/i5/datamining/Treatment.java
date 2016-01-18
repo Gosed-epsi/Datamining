@@ -23,32 +23,34 @@ import org.json.simple.parser.ParseException;
  *
  * @author Sinys
  */
-public class Traitement {
+public class Treatment {
 
     JsonBuilder builder = new JsonBuilder();
     StopWords stopWords = new StopWords();
     List<DataEntity> dataEnter = new ArrayList();
-    List<DataEntity> dataExit = new ArrayList();
+    List<JsonEntity> dataExit = new ArrayList();
     private final HashMap<String, HashMap<String, Integer>> mapCategorie = new HashMap();
     private final List<String> words = new ArrayList<>();
     private final List<String> polarites = new ArrayList();
     private float fiabilite = 0;
 
-    public void traitement() throws IOException, MalformedURLException, RepustateException, ParseException {
+    /**
+     * Main treatment
+     *
+     * @throws IOException
+     * @throws MalformedURLException
+     * @throws RepustateException
+     * @throws ParseException
+     */
+    public void treatment() throws IOException, MalformedURLException, RepustateException, ParseException {
         boolean bStopWord;
         for (DataEntity entity : builder.getFullCommentaires()) {
+
+            fillCatMap(entity);
+
+            entity.setCommentaireTrie(sortComment(entity));
+
             dataEnter.add(entity);
-
-            for (String cat : entity.getListeCategorie()) {
-                if (!mapCategorie.containsKey(cat)) {
-                    mapCategorie.put(cat, new HashMap<String, Integer>());
-                }
-            }
-
-            String lTrie = sortComment(entity);
-            entity.setCommentaireTrie(lTrie);
-//            System.out.println(entity.getCommentaires());
-//            System.out.println(entity.getCommentaireTrie());
         }
 
         //Recherche de la valeur max de chaque mots
@@ -104,22 +106,40 @@ public class Traitement {
 
         for (int i = 0; i < dataExit.size(); i++) {
 
-            System.out.println("Expected : " + dataEnter.get(i).getListeCategorie());
-            System.out.println("Found    : " + dataExit.get(i).getListeCategorie());
+            System.out.println("Expected     : " + dataEnter.get(i).getListeCategorie());
+            System.out.println("Found        : " + dataExit.get(i).getListeCategorie());
 
             if (dataEnter.get(i).getListeCategorie().containsAll(dataExit.get(i).getListeCategorie())) {
-                System.out.println(true);
+                System.out.println("Consistency  : " + true);
                 fiabilite++;
             } else {
-                System.out.println(false);
+                System.out.println("Consistency  : " + false);
             }
 
-            System.out.println("Raiting : " + polarites.get(i));
+            System.out.println("Raiting      : " + polarites.get(i));
 
             System.out.println("****************************");
         }
+        System.out.println("****************************");
         fiabilite = (fiabilite * 100) / dataExit.size();
-        System.out.println(fiabilite + "%");
+        if (fiabilite != 100) {
+            System.err.println("Success rate : " + fiabilite + "%");
+        } else {
+            System.out.println("Success rate : " + fiabilite + "%");
+        }
+    }
+
+    /**
+     * Method which fill the map with the categories and init the value
+     *
+     * @param entity
+     */
+    private void fillCatMap(DataEntity entity) {
+        for (String cat : entity.getListeCategorie()) {
+            if (!mapCategorie.containsKey(cat)) {
+                mapCategorie.put(cat, new HashMap<String, Integer>());
+            }
+        }
     }
 
     /**
@@ -134,7 +154,7 @@ public class Traitement {
      */
     public String calculPolarite(String commentaire) throws IOException, MalformedURLException, RepustateException, ParseException {
         String polarite;
-        Double score = null;
+        Double score = new Double("0");
         Map map = new HashMap();
         map.put("text1", commentaire);
 //        System.out.println(RepustateClient.getSentimentBulk(map));
@@ -145,7 +165,7 @@ public class Traitement {
         for (Object obj : jsonArray) {
             JSONObject jsonObject = (JSONObject) obj;
             score = new Double(jsonObject.get("score").toString());
-            score = score * 10;
+//            score = score * 10;
 //            System.out.println("Polarité : " + score);
         }
         polarite = score.toString();
@@ -162,8 +182,8 @@ public class Traitement {
      */
     public void calculAllpolarite() throws IOException, MalformedURLException, RepustateException, ParseException {
 
-        for (DataEntity de : builder.getSimpleCommentaires()) {
-            polarites.add(calculPolarite(de.getCommentaires()));
+        for (DataEntity de : dataEnter) {
+            polarites.add(calculPolarite(de.getCommentaireTrie()));
         }
 
     }
@@ -188,7 +208,7 @@ public class Traitement {
                 lTrie = lTrie + " " + word;
 
                 //Remplissage de la map
-                fillCatMap(entity, word);
+                fillOccursCatMap(entity, word);
 
                 if (!words.contains(word)) {
                     words.add(word);
@@ -201,13 +221,12 @@ public class Traitement {
     }
 
     /**
-     * This method will fill the map of 'catégories' if these words by category
-     * ones are not already inside
+     * This method will fill occurs the map of 'catégories'
      *
      * @param entity
      * @param word
      */
-    private void fillCatMap(DataEntity entity, String word) {
+    private void fillOccursCatMap(DataEntity entity, String word) {
         for (String cat : entity.getListeCategorie()) {
             if (mapCategorie.get(cat).containsKey(word)) {
                 Integer occurs = mapCategorie.get(cat).get(word);
