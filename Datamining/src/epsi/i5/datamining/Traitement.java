@@ -27,96 +27,30 @@ public class Traitement {
 
     JsonBuilder builder = new JsonBuilder();
     StopWords stopWords = new StopWords();
+    List<DataEntity> dataEnter = new ArrayList();
+    List<DataEntity> dataExit = new ArrayList();
     private final HashMap<String, HashMap<String, Integer>> mapCategorie = new HashMap();
     private final List<String> words = new ArrayList<>();
-    private List<List> jsonListCat = new ArrayList();
-    private List<String> jsonSimpleCat = new ArrayList();
     private final List<String> polarites = new ArrayList();
-    private final List<List> findCom = new ArrayList();
     private float fiabilite = 0;
 
     public void traitement() throws IOException, MalformedURLException, RepustateException, ParseException {
-        StopWords stopword = new StopWords();
-        boolean bStopWord = false;
+        boolean bStopWord;
         for (DataEntity entity : builder.getFullCommentaires()) {
-            if (entity.getListeCategorie() == null) {
-                jsonSimpleCat.add(entity.getSimpleCategorie());
-                jsonListCat = null;
-            } else {
-                jsonListCat.add(entity.getListeCategorie());
-                jsonSimpleCat = null;
-            }
+            dataEnter.add(entity);
 
-            String lTrie = "";
-
-            if (entity.getSimpleCategorie() == null) {
-                for (String cat : entity.getListeCategorie()) {
-                    if (!mapCategorie.containsKey(cat)) {
-                        mapCategorie.put(cat, new HashMap<String, Integer>());
-                    }
-                }
-            } else {
-                if (!mapCategorie.containsKey(entity.getSimpleCategorie())) {
-                    mapCategorie.put(entity.getSimpleCategorie(), new HashMap<String, Integer>());
+            for (String cat : entity.getListeCategorie()) {
+                if (!mapCategorie.containsKey(cat)) {
+                    mapCategorie.put(cat, new HashMap<String, Integer>());
                 }
             }
 
-            for (String word : entity.getCommentaires().split(" ")) {
-                //System.out.println(stopword.getRegEx());
-                for (String stopApo : stopword.getRegExApos().replace("|", " ").split(" ")) {
-                    word = word.replaceAll(stopApo, "");
-//                    System.out.println(stopApo);
-                }
-
-                word = word.replace(".", " ").replace(",", " ").replace("!", " ").replace("(", "").replace(")", "").replace("'", "").replace(":", "").trim();
-
-                for (String stop : stopword.getRegEx().replace("|", " ").split(" ")) {
-                    //System.out.println(stop);
-                    if ((word.equalsIgnoreCase(stop)) && !word.equalsIgnoreCase("")) {
-                        bStopWord = true;
-                    }
-                }
-                if (bStopWord == false && !"".equals(word)) {
-                    lTrie = lTrie + " " + word;
-
-                    if (entity.getSimpleCategorie() == null) {
-                        //Remplissage de la map
-                        for (String cat : entity.getListeCategorie()) {
-                            if (mapCategorie.get(cat).containsKey(word)) {
-                                Integer occurs = mapCategorie.get(cat).get(word);
-                                occurs++;
-                                mapCategorie.get(cat).remove(word);
-                                mapCategorie.get(cat).put(word, occurs);
-                            } else {
-                                mapCategorie.get(cat).put(word, 1);
-                            }
-                        }
-                    } else {
-                        if (mapCategorie.get(entity.getSimpleCategorie()).containsKey(word)) {
-                            Integer occurs = mapCategorie.get(entity.getSimpleCategorie()).get(word);
-                            occurs++;
-                            mapCategorie.get(entity.getSimpleCategorie()).remove(word);
-                            mapCategorie.get(entity.getSimpleCategorie()).put(word, occurs);
-                        } else {
-                            mapCategorie.get(entity.getSimpleCategorie()).put(word, 1);
-                        }
-                    }
-
-                    if (!words.contains(word)) {
-                        words.add(word);
-                    }
-
-                }
-                bStopWord = false;
-            }
+            String lTrie = sortComment(entity);
             entity.setCommentaireTrie(lTrie);
 //            System.out.println(entity.getCommentaires());
 //            System.out.println(entity.getCommentaireTrie());
         }
 
-//        for (Map.Entry entry : mapCategorie.entrySet()) {
-//            System.out.println(entry);
-//        }
         //Recherche de la valeur max de chaque mots
         for (String word : words) {
             Integer max = 0;
@@ -129,8 +63,7 @@ public class Traitement {
                 }
             }
 
-//            System.out.println(max);
-            //Suppression des mots si ce n'est pas al valuer max
+            //Suppression des mots si ce n'est pas la valeur max
             for (Entry entry : mapCategorie.entrySet()) {
                 HashMap mapDonnee = (HashMap) entry.getValue();
                 if (mapDonnee.get(word) != max) {
@@ -140,27 +73,16 @@ public class Traitement {
             }
         }
 
-//        for (Entry entry : mapCategorie.entrySet()) {
-//            System.out.println(entry);
-//        }
         List<DataEntity> commentairesFinaux = builder.getSimpleCommentaires();
         for (DataEntity commentaire : commentairesFinaux) {
             List<String> categorie;
             for (String word : commentaire.getCommentaires().split(" ")) {
                 //System.out.println(stopword.getRegEx());
-                for (String stopApo : stopword.getRegExApos().replace("|", " ").split(" ")) {
-                    word = word.replaceAll(stopApo, "");
-//                    System.out.println(stopApo);
-                }
 
-                word = word.replace(".", " ").replace(",", " ").replace("!", " ").replace("(", "").replace(")", "").replace("'", "").replace(":", "").trim();
+                word = useStopWords(word);
 
-                for (String stop : stopword.getRegEx().replace("|", " ").split(" ")) {
-                    //System.out.println(stop);
-                    if ((word.equalsIgnoreCase(stop)) && !word.equalsIgnoreCase("")) {
-                        bStopWord = true;
-                    }
-                }
+                bStopWord = checkStopWords(word);
+
                 if (bStopWord == false) {
                     for (Entry entry : mapCategorie.entrySet()) {
                         HashMap mapDonnee = (HashMap) entry.getValue();
@@ -173,47 +95,43 @@ public class Traitement {
                         }
                     }
                 }
-                bStopWord = false;
+
             }
-            findCom.add(commentaire.getListeCategorie());
+            dataExit.add(commentaire);
         }
-        
+
         calculAllpolarite();
-        
-        for (int i = 0; i < findCom.size(); i++) {
 
-            if (jsonListCat == null) {
-                System.out.println("Expected : " + jsonSimpleCat.get(i));
+        for (int i = 0; i < dataExit.size(); i++) {
+
+            System.out.println("Expected : " + dataEnter.get(i).getListeCategorie());
+            System.out.println("Found    : " + dataExit.get(i).getListeCategorie());
+
+            if (dataEnter.get(i).getListeCategorie().containsAll(dataExit.get(i).getListeCategorie())) {
+                System.out.println(true);
+                fiabilite++;
             } else {
-                System.out.println("Expected : " + jsonListCat.get(i));
+                System.out.println(false);
             }
 
-            System.out.println("Found    : " + findCom.get(i));
-
-            if (jsonListCat == null) {
-                if (findCom.get(i).contains(jsonSimpleCat.get(i))) {
-                    System.out.println(true);
-                    fiabilite++;
-                } else {
-                    System.out.println(false);
-                }
-            } else {
-                if (jsonListCat.get(i).containsAll(findCom.get(i))) {
-                    System.out.println(true);
-                    fiabilite++;
-                } else {
-                    System.out.println(false);
-                }
-            }
-            
             System.out.println("Raiting : " + polarites.get(i));
 
             System.out.println("****************************");
         }
-        fiabilite = (fiabilite * 100) / findCom.size();
+        fiabilite = (fiabilite * 100) / dataExit.size();
         System.out.println(fiabilite + "%");
     }
 
+    /**
+     * Method will call the API to calculatethe rating of each comment
+     *
+     * @param commentaire
+     * @return rating
+     * @throws IOException
+     * @throws MalformedURLException
+     * @throws RepustateException
+     * @throws ParseException
+     */
     public String calculPolarite(String commentaire) throws IOException, MalformedURLException, RepustateException, ParseException {
         String polarite;
         Double score = null;
@@ -233,13 +151,105 @@ public class Traitement {
         polarite = score.toString();
         return polarite;
     }
-    
+
+    /**
+     * Method which add rating of all comment and the list
+     *
+     * @throws IOException
+     * @throws MalformedURLException
+     * @throws RepustateException
+     * @throws ParseException
+     */
     public void calculAllpolarite() throws IOException, MalformedURLException, RepustateException, ParseException {
-        
+
         for (DataEntity de : builder.getSimpleCommentaires()) {
             polarites.add(calculPolarite(de.getCommentaires()));
         }
-        
+
+    }
+
+    /**
+     * Extraction of the comment sorted from full comment with stop words
+     *
+     * @param entity
+     * @return lTrie
+     */
+    private String sortComment(DataEntity entity) {
+        String lTrie = "";
+        boolean bStopWord = false;
+        for (String word : entity.getCommentaires().split(" ")) {
+            //System.out.println(stopword.getRegEx());
+            word = useStopWords(word);
+
+            bStopWord = checkStopWords(word);
+
+            if (bStopWord == false && !"".equals(word)) {
+                //Construction of comment sorted
+                lTrie = lTrie + " " + word;
+
+                //Remplissage de la map
+                fillCatMap(entity, word);
+
+                if (!words.contains(word)) {
+                    words.add(word);
+                }
+
+            }
+
+        }
+        return lTrie;
+    }
+
+    /**
+     * This method will fill the map of 'catégories' if these words by category
+     * ones are not already inside
+     *
+     * @param entity
+     * @param word
+     */
+    private void fillCatMap(DataEntity entity, String word) {
+        for (String cat : entity.getListeCategorie()) {
+            if (mapCategorie.get(cat).containsKey(word)) {
+                Integer occurs = mapCategorie.get(cat).get(word);
+                occurs++;
+                mapCategorie.get(cat).remove(word);
+                mapCategorie.get(cat).put(word, occurs);
+            } else {
+                mapCategorie.get(cat).put(word, 1);
+            }
+        }
+    }
+
+    /**
+     * Method which use the stop words
+     *
+     * @param aWord
+     * @return
+     */
+    private String useStopWords(String aWord) {
+        for (String stopApo : stopWords.getRegExApos().replace("|", " ").split(" ")) {
+            aWord = aWord.replaceAll(stopApo, "");
+//                    System.out.println(stopApo);
+        }
+
+        aWord = aWord.replace(".", " ").replace(",", " ").replace("!", " ").replace("(", "").replace(")", "").replace("'", "").replace(":", "").trim();
+        return aWord;
+    }
+
+    /**
+     * Method which check if stop words is found in comment
+     *
+     * @param aWord
+     * @return
+     */
+    private boolean checkStopWords(String aWord) {
+        boolean lFind = false;
+        for (String stop : stopWords.getRegEx().replace("|", " ").split(" ")) {
+            if ((aWord.equalsIgnoreCase(stop)) && !aWord.equalsIgnoreCase("")) {
+                lFind = true;
+            }
+        }
+        return lFind;
     }
 
 }

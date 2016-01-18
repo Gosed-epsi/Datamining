@@ -18,15 +18,6 @@ public class JsonEntity {
     private String commentaires;
     private Object polarite;
     private List<String> listeCategorie = new ArrayList();
-    private String simpleCategorie;
-
-    public String getSimpleCategorie() {
-        return simpleCategorie;
-    }
-
-    public void setSimpleCategorie(String simpleCategorie) {
-        this.simpleCategorie = simpleCategorie;
-    }
 
     public Object getId() {
         return id;
