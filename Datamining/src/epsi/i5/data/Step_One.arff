@@ -1,0 +1,116 @@
+@relation ClasserSE
+
+@attribute commentaire string
+@attribute categorie {Ambiance,Réalisation,Scénario,Acteur}
+
+@data
+' vraie petite merveille bercée voix Montand',Ambiance
+' Acteurs sympathiques dialogues amusants Preminger gommer coté théâtre coup film passe monotone',Réalisation
+' tres tres sympa maitre preminger ennuie jamais voir',Réalisation
+' voir histoire cinéma séquences droles meme ensemble franchement ennuyeux',Scénario
+' loin Disney préféré histoire personnages complètement farfelus continuent faire rêver adulte valide',Scénario
+' film fou délirant survolté surprises',Ambiance
+' magnifique dessin-animé Disney faire découvrir jeunes grands partager famille',Scénario
+' Disney humour fantastique once ennui',Ambiance
+' Décalé drôle absurde fantastique dessin animé voir absolument',Ambiance
+' film berçer enfance années voir moin',Scénario
+' sais film fidèle livre dessin animée fou complétement absurde',Ambiance
+' conteste l’œuvre délirante loufoque Disney d’années c’est plaisant regarder Indémodable',Ambiance
+' univers fantastique remplit lapin fleurs chantent',Ambiance
+' préfère loin livre disneys charme',Ambiance
+' disney part épouse perfection univers Lewis Carroll enchantement',Scénario
+' réfléchi fallait vraiment inventer sénatio histoire pareil meilleur disney ennui jamais seule logique logique',Scénario
+' Magique',Ambiance
+' chef oeuvre inoubliable qualités film burton arrive cheville Génial',Réalisation
+' dessin-animé décalé basculer incroyable monde rêves petite fille',Scénario
+' disney plaira aime prendre sérieux',Ambiance
+' émotions pu regarder dessin-animé',Ambiance
+' film terrorrisait gamine pense faut montrer jeunes enfants Ca perturbe',Ambiance
+' Franchement malsain Alice In Wonderland reflète esprit mauvais Disney conte déjà film limite comestible',Réalisation
+' adoré vrai date vraiment faut voir jeune ; adulte ans regarde intéressant xD',Ambiance
+' Magnifique lasse dessin animé couleurs univers déjanté passionnant acec pleins personnages attachants',Ambiance
+' Walt Disney réalise grands dessin-animés temps véritable chef-d’œuvre voir vie',Réalisation
+' classique Disney sens incontournable',Scénario
+' Alice pays merveilles suit magie couleurs immoralité ambiante pourra satisfaire vieux branlette intellectuelle',Scénario
+' seul Magique film bercer enfance pure poésie Lewis Caroll Disney',Ambiance
+' grand fan alice pays merveilles dessin-animé reste magique',Ambiance
+' chef-d oeuvre classique Disney histoire étrange personnages culte chansons uniques',Réalisation
+' Histoire incroyable sublime musique charme',Ambiance
+' Disney souvent inégal passages ennuyeux',Ambiance
+' chef oeuvre Disney histoire chansons uniques',Réalisation
+' super Walt Disney faut bizarreries soutenir comparaison livre Lewis Carroll joyeux non-anniversaire chèèèèèèèèèèèèèère',Réalisation
+' forcement meilleur wall disney Alice pays merveilles reste film animation classique voir exempt défaut',Réalisation
+' vrai Walt Disney ancienne bourré musiques aiment',Réalisation
+' film deçu montre réalité cités françaises fiction film montrant vie réel',Scénario
+' adore tro film tré bonne vengeance',Ambiance
+' western urbain lignée haine -t crack-er foutu interprété',Ambiance
+' film coup poing univers dur grand équipe scénariste réalisateur acteurs',Réalisation
+' film vrai daupe montre realite cite acteur bidon scenar pourrie vrai naufrage eviter',Réalisation
+' film coup poing acteur réalité banlieue montré',Acteur
+' film met pauvre situation jeunes femmes sein banlieues chaudes monotone pouvoir emballer',Ambiance
+' étoile déjà BO signée Cut Killer reste route difficulté volonté réalisme correcte',Réalisation
+' film met évidence travers banlieue reprochera doute parfois lent morosité oblige bavard moments',Ambiance
+' film montre cité Paris',Scénario
+' Original ca montre côté féminin banlieues meilleur film',Scénario
+' étoile uniquement voit angle vue femmes film cité reste rempli préjugés carbure exagérations',Réalisation
+' spécialiste question semble film peinture réaliste moeurs règne cités vivre',Scénario
+' tres film cité tres joué fin optimiste',Scénario
+' trouvé film thème exploité bons acteurs',Acteur
+' film coup poing',Réalisation
+' détesté film effort dialogues <br/> acteurs parlent rue vulgairement <br/> respecte entendu public aimé film',Ambiance
+' film intérêt pire vie Pale imitation haine Rai film éviter',Scénario
+' belle réalisation époque mal rebondissements acteurs marquants Philippe Klay excellents dépareillerait film Tarentino',Réalisation
+' action ennuyeuse scénario incompréhensible humour tombe plat sauver tissu âneries part peut-être sourire Cameron Diaz',Scénario
+' Charlie drôles dames heureusement humour second degrés Bill Murray viennent sauver reste rendre film minimum divertissant /',Ambiance
+' divertissement second degré réunit habilement humour potache cinéma d’action d’aventure',Scénario
+' accord gros cul cul adore sais bordel adore cast génial humour cascades excellentes voila adore',Ambiance
+' film divertissant actrices sexy Sam Rockwell hilarant lorsqu‘il danse cigarette',Acteur
+' film vaut jolies miss-actrices casting',Acteur
+' trio sort remake drôle jouer scène gros voulu',Ambiance
+' fouille cartons récupérer vieilles séries disparues faire film action bas gamme réelle imagination terrible tirer casting',Scénario
+' film déjanté mise scène dynamique parodiant célèbre série nom Bill Murray impeccable personnage',Réalisation
+' faible scénaristiquement',Scénario
+' nullité absolue peine divertissant film hisse pires films pu voir',Réalisation
+' mauvais film action',Réalisation
+' série devient film survitaminé moindre temps mort Divertissant prétention',Ambiance
+' actrices soient mauvaises loin charme série',Acteur
+' mauvais permet passer moment inoubliable',Ambiance
+' Honnêtement trouve mauvais film',Scénario
+' Honnêtement trouve film',Scénario
+' divertissement honnéte pretention scénario original aurais nuit',Scénario
+' scènes actions gros film point fort rythmés charme actrices opérent merveille',Acteur
+' film action moque légèrement films actions adore attache filles allier boulot petits copains',Scénario
+' trio super actrices convaincantes scénario passe moment ca arrête',Scénario
+' action humour scénario chercher loin loin série TV coup film râté ensemble casting intéressant',Réalisation
+' / divertisement reste agréable humour exploité',Ambiance
+' télé saoulé zappé seul truc pouvait retenir Drew Barrymore pourri film',Acteur
+' Film Génial action casting choisie',Acteur
+' film super hier soir',Scénario
+' remake serie Cameron Diaz Drew Barrymore Lucy Liu',Acteur
+' Divertissement \% réussi Mention spéciale Sam Rockwell GENIAL hab',Ambiance
+' pose sérieusement question concerne utilité genre film vide qualité plastique héroines',Réalisation
+' jamais filles belles lourdingue',Ambiance
+' film suite cascade grand intérêt prétexte déshabiller actrices scénario quasi inexistant',Réalisation
+' film donne plaisir voir actions sympathiques actrices sublimes jouent rôle bonne réalisation scénario',Réalisation
+' mouais plutot faible trio sympatique petillant glamour serie',Acteur
+' film action bons acteurs aimé voir',Acteur
+' bonne comédie passe moment préféré volet voir',Ambiance
+' mauvais ensemble sauvé extrême justesse joli casting',Acteur
+' bonne petite comédie laisse aprécier',Ambiance
+' interprétation magistrale actrices principales film jamais loin simple illustration /',Scénario
+' Brillant réalisme film reste autant noir basé histoire vraie actrices impressionnantes justesse',Acteur
+' film dur actrices excellentes histoire bonne',Acteur
+' film français belle tragédie psychodrame rôle Sylvie Testud déjà grande actrice',Acteur
+' vraiment aimer film croirais réell film peur sonctions prit fin film',Ambiance
+' viens voir dvd Long poussif rythme malsain Bref comprends critiques gâché mise scéne soporifique',Réalisation
+' Effarant manque mener',Ambiance
+' Incisif brillant dévastateur puissant cinéma français permet élever',Scénario
+' film ressemble téléfilm joué prend libertés vérité historique',Scénario
+' Vraiment film joué histoire vraie vraiment intéressante mise scène soignée',Réalisation
+' film vraiment marquant hypnotisé mieux Sylvie Testud remarquable regarder faute',Acteur
+' voir jeu actrices histoire caméra connaitre affaire étrange',Acteur
+' Blessures Assassines rende vrai actrices exceptionnelles',Acteur
+' sais aurait pensé Jacques Lacan film part trouvé époustoufflant Excellent points voir urgence',Scénario
+' Rarement film trouvé réussi interprétation Sylvie Testud irréprochable excellente réalisation',Acteur
+' Film fin suggère impose explication sublimement joué moment plaisir préfère loin drôles dames-là',Scénario
+' jeunes actrices merveilleuses crèvent écran -P Denis mieux art attend film',Acteur

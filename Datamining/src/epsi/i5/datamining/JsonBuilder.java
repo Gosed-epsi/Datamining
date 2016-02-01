@@ -36,20 +36,21 @@ public class JsonBuilder {
         try {
             Object objFile = parser.parse(new FileReader("src/epsi/i5/data/commentaires_tripadvisor.json"));
 
+
             JSONArray jsonArray = (JSONArray) objFile;
             for (Object obj : jsonArray) {
                 JSONObject jsonObject = (JSONObject) obj;
                 DataEntity commentaire = new DataEntity();
-                commentaire.setId(jsonObject.get("id"));
+                commentaire.setId(jsonObject.get("id").toString());
                 commentaire.setCommentaires((String) jsonObject.get("commentaires"));
                 commentaire.setPolarite((String) jsonObject.get("polarité"));
+
                 try {
                     commentaire.setListeCategorie((List) jsonObject.get("catégorie"));
                 } catch (Exception e) {
                     System.out.println("Message : " + e.getMessage());
                     commentaire.setListeCategorie(null);
                 }
-
                 listeCommentaires.add(commentaire);
             }
         } catch (FileNotFoundException e) {
