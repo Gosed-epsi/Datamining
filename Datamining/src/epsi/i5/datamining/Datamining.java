@@ -26,8 +26,7 @@ public class Datamining {
     public static void main(String[] args) throws IOException, MalformedURLException, RepustateException, ParseException, Exception {
 
         Treatment traitement = new Treatment();
-        traitement.treatment();
-
+       // traitement.treatment();
 
         Weka arff = new Weka();
         arff.excutionAlgo();

@@ -5,6 +5,7 @@
  */
 package epsi.i5.datamining;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
@@ -29,13 +30,13 @@ public class JsonBuilder {
      * This method return un DataEntity with all attributes filled from the json
      * file
      *
+     * @param file
      * @return
      */
-    public List<DataEntity> getFullCommentaires() {
+    public List<DataEntity> getFullCommentaires(File file) {
         List<DataEntity> listeCommentaires = new ArrayList();
         try {
-            Object objFile = parser.parse(new FileReader("src/epsi/i5/data/commentaires_tripadvisor.json"));
-
+            Object objFile = parser.parse(new FileReader(file.getAbsolutePath()));
 
             JSONArray jsonArray = (JSONArray) objFile;
             for (Object obj : jsonArray) {
@@ -69,10 +70,10 @@ public class JsonBuilder {
      *
      * @return
      */
-    public List<DataEntity> getSimpleCommentaires() {
+    public List<DataEntity> getSimpleCommentaires(File file) {
         List<DataEntity> listeCommentaires = new ArrayList();
         try {
-            Object objFile = parser.parse(new FileReader("src/epsi/i5/data/commentaires_tripadvisor.json"));
+            Object objFile = parser.parse(new FileReader(file.getAbsolutePath()));
 
             JSONArray jsonArray = (JSONArray) objFile;
             for (Object obj : jsonArray) {

@@ -6,6 +6,7 @@
 package epsi.i5.datamining;
 
 import epsi.i5.datamining.repustate.RepustateException;
+import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.util.ArrayList;
@@ -34,14 +35,15 @@ public class Treatment {
     /**
      * Main treatment
      *
+     * @param file
      * @throws IOException
      * @throws MalformedURLException
      * @throws RepustateException
      * @throws ParseException
      */
-    public void treatment() throws IOException, MalformedURLException, RepustateException, ParseException {
+    public void treatment(File file) throws IOException, MalformedURLException, RepustateException, ParseException {
         boolean bStopWord;
-        for (DataEntity entity : builder.getFullCommentaires()) {
+        for (DataEntity entity : builder.getFullCommentaires(file)) {
 
             fillCatMap(entity);
 
@@ -72,7 +74,7 @@ public class Treatment {
             }
         }
 
-        List<DataEntity> commentairesFinaux = builder.getSimpleCommentaires();
+        List<DataEntity> commentairesFinaux = builder.getSimpleCommentaires(file);
         for (DataEntity commentaire : commentairesFinaux) {
             List<String> categorie;
             for (String word : commentaire.getCommentaires().split(" ")) {
