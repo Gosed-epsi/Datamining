@@ -89,7 +89,7 @@ public class RepustateClient {
      * Note 2: This call doesn't work on home pages e.g. cnn.com, ebay.com,
      * nytimes.com. Its intended use is for single article pages.
      *
-     * @param format
+     * @param url
      * @param data
      * @return
      * @throws MalformedURLException

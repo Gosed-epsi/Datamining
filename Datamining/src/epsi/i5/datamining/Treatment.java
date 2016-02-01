@@ -5,7 +5,6 @@
  */
 package epsi.i5.datamining;
 
-import epsi.i5.datamining.repustate.RepustateClient;
 import epsi.i5.datamining.repustate.RepustateException;
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -14,8 +13,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
@@ -159,15 +156,15 @@ public class Treatment {
         map.put("text1", commentaire);
 //        System.out.println(RepustateClient.getSentimentBulk(map));
         JSONParser jp = new JSONParser();
-        JSONObject json = (JSONObject) jp.parse(RepustateClient.getSentimentBulk(map));
+//        JSONObject json = (JSONObject) jp.parse(RepustateClient.getSentimentBulk(map));
 //        System.out.println(json.get("results"));
-        JSONArray jsonArray = (JSONArray) json.get("results");
-        for (Object obj : jsonArray) {
-            JSONObject jsonObject = (JSONObject) obj;
-            score = new Double(jsonObject.get("score").toString());
-//            score = score * 10;
-//            System.out.println("Polarité : " + score);
-        }
+        //       JSONArray jsonArray = (JSONArray) json.get("results");
+//        for (Object obj : jsonArray) {
+//            JSONObject jsonObject = (JSONObject) obj;
+//            score = new Double(jsonObject.get("score").toString());
+////            score = score * 10;
+////            System.out.println("Polarité : " + score);
+//        }
         polarite = score.toString();
         return polarite;
     }
