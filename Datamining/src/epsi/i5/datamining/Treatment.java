@@ -20,12 +20,13 @@ import org.json.simple.parser.ParseException;
 /**
  *
  * @author Sinys
+ * Comment 108
  */
 public class Treatment {
 
     JsonBuilder builder = new JsonBuilder();
     StopWords stopWords = new StopWords();
-    List<DataEntity> dataEnter = new ArrayList();
+    public List<DataEntity> dataEnter = new ArrayList();
     List<JsonEntity> dataExit = new ArrayList();
     private final HashMap<String, HashMap<String, Integer>> mapCategorie = new HashMap();
     private final List<String> words = new ArrayList<>();

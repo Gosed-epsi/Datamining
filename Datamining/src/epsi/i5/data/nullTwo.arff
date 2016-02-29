@@ -1,0 +1,250 @@
+@relation 'ClasserSE-weka.filters.unsupervised.attribute.StringToWordVector-R1-W1000-prune-rate-1.0-N0-stemmerweka.core.stemmers.NullStemmer-stopwords-handlerweka.core.stopwords.Null-M1-tokenizerweka.core.tokenizers.WordTokenizer -delimiters \" \\r\\n\\t.,;:\\\'\\\"()?!\"'
+
+@attribute categorie {Localisation,Propreté,Chambre,Service,Literie,Qualité-Prix}
+@attribute polarité numeric
+@attribute ++ numeric
+@attribute Aurélia numeric
+@attribute British numeric
+@attribute C/I numeric
+@attribute Camden numeric
+@attribute Chambre numeric
+@attribute Confortable numeric
+@attribute Eurostar numeric
+@attribute Euston numeric
+@attribute Gare numeric
+@attribute Hotel numeric
+@attribute Hôtel numeric
+@attribute Ibis numeric
+@attribute Impossibilité numeric
+@attribute Kristel numeric
+@attribute Londres numeric
+@attribute Museum numeric
+@attribute Ménage numeric
+@attribute Pancras numeric
+@attribute Personnel numeric
+@attribute Petit numeric
+@attribute Saint numeric
+@attribute Salle numeric
+@attribute Seul numeric
+@attribute St numeric
+@attribute Station numeric
+@attribute TV numeric
+@attribute Tomas numeric
+@attribute Town numeric
+@attribute accueil numeric
+@attribute accueillant numeric
+@attribute affluence numeric
+@attribute agréable numeric
+@attribute aller numeric
+@attribute amène numeric
+@attribute anglais numeric
+@attribute arrivent numeric
+@attribute arrivée numeric
+@attribute attente numeric
+@attribute avons numeric
+@attribute baignoire numeric
+@attribute bain numeric
+@attribute bains numeric
+@attribute bar numeric
+@attribute boisons numeric
+@attribute boissons numeric
+@attribute bonne numeric
+@attribute bons numeric
+@attribute breakfast numeric
+@attribute buffet numeric
+@attribute bémol numeric
+@attribute cabine numeric
+@attribute calme numeric
+@attribute calmes numeric
+@attribute carreaux numeric
+@attribute carrelage numeric
+@attribute cassés numeric
+@attribute centaines numeric
+@attribute centre numeric
+@attribute chaleureux numeric
+@attribute chambre numeric
+@attribute chambres numeric
+@attribute changement numeric
+@attribute chaîne numeric
+@attribute chaînes numeric
+@attribute check numeric
+@attribute chercher numeric
+@attribute choix numeric
+@attribute clin numeric
+@attribute commander numeric
+@attribute commencent numeric
+@attribute confortable numeric
+@attribute confortables numeric
+@attribute conseille numeric
+@attribute copieux numeric
+@attribute correcte numeric
+@attribute couette numeric
+@attribute design numeric
+@attribute difficile numeric
+@attribute disponibilité numeric
+@attribute disponible numeric
+@attribute dizaine numeric
+@attribute dommage numeric
+@attribute douche numeric
+@attribute ds numeric
+@attribute déco numeric
+@attribute décoré numeric
+@attribute déjeuner numeric
+@attribute délicieux numeric
+@attribute détails numeric
+@attribute effectués numeric
+@attribute emplacement numeric
+@attribute entièrement numeric
+@attribute excellent numeric
+@attribute extra numeric
+@attribute ferme numeric
+@attribute fille numeric
+@attribute fonctionnelle numeric
+@attribute fonctionnelles numeric
+@attribute formule numeric
+@attribute forts numeric
+@attribute françaises numeric
+@attribute gare numeric
+@attribute gares numeric
+@attribute gentillesse numeric
+@attribute grande numeric
+@attribute hamburger numeric
+@attribute hotel numeric
+@attribute hôtel numeric
+@attribute idéal numeric
+@attribute idéalement numeric
+@attribute in numeric
+@attribute insonorisation numeric
+@attribute isolé numeric
+@attribute joins numeric
+@attribute jours numeric
+@attribute literie numeric
+@attribute loin numeric
+@attribute lumineux numeric
+@attribute mal numeric
+@attribute mauvaise numeric
+@attribute minutes numeric
+@attribute mn numeric
+@attribute moder numeric
+@attribute moderne numeric
+@attribute mur numeric
+@attribute mètres numeric
+@attribute métro numeric
+@attribute nickel numeric
+@attribute nuit numeric
+@attribute obligation numeric
+@attribute oeil numeric
+@attribute out numeric
+@attribute pancras numeric
+@attribute parfait numeric
+@attribute parfaitement numeric
+@attribute partir numeric
+@attribute peinture numeric
+@attribute personnel numeric
+@attribute petit numeric
+@attribute petit-déjeuner numeric
+@attribute petite numeric
+@attribute petites numeric
+@attribute pied numeric
+@attribute pieds numeric
+@attribute place numeric
+@attribute placé numeric
+@attribute points numeric
+@attribute porte numeric
+@attribute prises numeric
+@attribute prix numeric
+@attribute problème numeric
+@attribute professionnel numeric
+@attribute propre numeric
+@attribute propres numeric
+@attribute proximité numeric
+@attribute prête numeric
+@attribute pubs numeric
+@attribute quartier numeric
+@attribute quotidiennes numeric
+@attribute raisonnable numeric
+@attribute rapidement numeric
+@attribute recommande numeric
+@attribute recommander numeric
+@attribute recommandé numeric
+@attribute refaire numeric
+@attribute refait numeric
+@attribute refaite numeric
+@attribute relogé numeric
+@attribute repartent numeric
+@attribute reposant numeric
+@attribute reposante numeric
+@attribute restaurant numeric
+@attribute restaurants numeric
+@attribute resto numeric
+@attribute revoir numeric
+@attribute réception numeric
+@attribute résolu numeric
+@attribute saint numeric
+@attribute sale numeric
+@attribute sdb numeric
+@attribute serviettes numeric
+@attribute situé numeric
+@attribute sol numeric
+@attribute sorties numeric
+@attribute souriant numeric
+@attribute sourire numeric
+@attribute spécial numeric
+@attribute standards numeric
+@attribute suffisant numeric
+@attribute super numeric
+@attribute surprise numeric
+@attribute sympa numeric
+@attribute tachée numeric
+@attribute taille numeric
+@attribute tenu numeric
+@attribute terme numeric
+@attribute tranchant numeric
+@attribute tres numeric
+@attribute téléphoner numeric
+@attribute urgence numeric
+@attribute vivement numeric
+@attribute volonté numeric
+@attribute vraiment numeric
+@attribute wc numeric
+@attribute à numeric
+@attribute écoute numeric
+@attribute électriques numeric
+@attribute équipées numeric
+@attribute êtés numeric
+
+@data
+{1 0.8,13 1,55 1,63 1,67 1,76 1,89 1,90 1,92 1,101 1,112 1,113 1,134 1,141 1,156 1,163 1,165 1,184 1,197 1,204 1}
+{0 Propreté,1 0.8,13 1,55 1,63 1,67 1,76 1,89 1,90 1,92 1,101 1,112 1,113 1,134 1,141 1,156 1,163 1,165 1,184 1,197 1,204 1}
+{0 Chambre,1 0.8,13 1,55 1,63 1,67 1,76 1,89 1,90 1,92 1,101 1,112 1,113 1,134 1,141 1,156 1,163 1,165 1,184 1,197 1,204 1}
+{0 Service,1 0.8,13 1,55 1,63 1,67 1,76 1,89 1,90 1,92 1,101 1,112 1,113 1,134 1,141 1,156 1,163 1,165 1,184 1,197 1,204 1}
+{0 Chambre,1 0.2,10 1,14 1,17 1,20 1,23 1,24 1,36 1,42 1,44 1,48 1,60 1,62 1,65 1,83 1,93 1,99 1,102 1,104 1,107 1,110 1,122 1,123 1,129 1,145 1,146 1,149 1,163 1,190 1,193 1}
+{1 0.2,10 1,14 1,17 1,20 1,23 1,24 1,36 1,42 1,44 1,48 1,60 1,62 1,65 1,83 1,93 1,99 1,102 1,104 1,107 1,110 1,122 1,123 1,129 1,145 1,146 1,149 1,163 1,190 1,193 1}
+{0 Service,1 0.6,10 1,20 1,26 1,31 1,34 1,87 1,105 1,109 1,112 1,115 1,126 1,129 1,137 1,157 1,173 1,178 1,184 1,207 1}
+{1 0.6,10 1,20 1,26 1,31 1,34 1,87 1,105 1,109 1,112 1,115 1,126 1,129 1,137 1,157 1,173 1,178 1,184 1,207 1}
+{0 Service,1 0.4,3 1,5 1,13 1,16 1,29 1,31 1,32 1,61 1,62 1,70 1,77 1,81 1,93 1,96 1,98 1,106 1,111 1,133 1,140 1,142 1,154 1,174 1,188 1,189 1,192 1,194 1}
+{1 0.4,3 1,5 1,13 1,16 1,29 1,31 1,32 1,61 1,62 1,70 1,77 1,81 1,93 1,96 1,98 1,106 1,111 1,133 1,140 1,142 1,154 1,174 1,188 1,189 1,192 1,194 1}
+{0 Chambre,1 0.4,3 1,5 1,13 1,16 1,29 1,31 1,32 1,61 1,62 1,70 1,77 1,81 1,93 1,96 1,98 1,106 1,111 1,133 1,140 1,142 1,154 1,174 1,188 1,189 1,192 1,194 1}
+{0 Chambre,1 0.9,10 1,13 1,19 1,20 1,22 1,24 1,26 1,31 1,33 1,37 1,39 1,43 1,51 1,62 1,64 1,75 1,89 1,95 1,108 1,117 1,119 1,121 1,124 1,126 1,129 1,130 1,145 1,147 1,155 1,158 1,161 1,166 1,176 1,183 1,186 1}
+{0 Literie,1 0.9,10 1,13 1,19 1,20 1,22 1,24 1,26 1,31 1,33 1,37 1,39 1,43 1,51 1,62 1,64 1,75 1,89 1,95 1,108 1,117 1,119 1,121 1,124 1,126 1,129 1,130 1,145 1,147 1,155 1,158 1,161 1,166 1,176 1,183 1,186 1}
+{0 Propreté,1 0.9,10 1,13 1,19 1,20 1,22 1,24 1,26 1,31 1,33 1,37 1,39 1,43 1,51 1,62 1,64 1,75 1,89 1,95 1,108 1,117 1,119 1,121 1,124 1,126 1,129 1,130 1,145 1,147 1,155 1,158 1,161 1,166 1,176 1,183 1,186 1}
+{0 Service,1 0.9,10 1,13 1,19 1,20 1,22 1,24 1,26 1,31 1,33 1,37 1,39 1,43 1,51 1,62 1,64 1,75 1,89 1,95 1,108 1,117 1,119 1,121 1,124 1,126 1,129 1,130 1,145 1,147 1,155 1,158 1,161 1,166 1,176 1,183 1,186 1}
+{1 0.9,10 1,13 1,19 1,20 1,22 1,24 1,26 1,31 1,33 1,37 1,39 1,43 1,51 1,62 1,64 1,75 1,89 1,95 1,108 1,117 1,119 1,121 1,124 1,126 1,129 1,130 1,145 1,147 1,155 1,158 1,161 1,166 1,176 1,183 1,186 1}
+{1 0.1,12 1,38 1,49 1,63 1,74 1,76 1,79 1,88 1,94 1,100 1,120 1,125 1,135 1,142 1,144 1,148 1,168 1,171 1,174 1,180 1,194 1,200 1}
+{0 Service,1 0.1,12 1,38 1,49 1,63 1,74 1,76 1,79 1,88 1,94 1,100 1,120 1,125 1,135 1,142 1,144 1,148 1,168 1,171 1,174 1,180 1,194 1,200 1}
+{0 Chambre,1 0.1,12 1,38 1,49 1,63 1,74 1,76 1,79 1,88 1,94 1,100 1,120 1,125 1,135 1,142 1,144 1,148 1,168 1,171 1,174 1,180 1,194 1,200 1}
+{0 Chambre,1 0.3,2 1,15 1,17 1,35 1,40 1,45 1,46 1,47 1,62 1,68 1,71 1,80 1,91 1,117 1,132 1,153 1,177 1,179 1,201 1,202 1}
+{0 Service,1 0.3,2 1,15 1,17 1,35 1,40 1,45 1,46 1,47 1,62 1,68 1,71 1,80 1,91 1,117 1,132 1,153 1,177 1,179 1,201 1,202 1}
+{1 0.7,25 1,28 1,34 1,50 1,52 1,54 1,66 1,82 1,103 1,110 1,136 1,140 1,160 1,172 1,184 1,191 1,205 1}
+{0 Service,1 0.7,25 1,28 1,34 1,50 1,52 1,54 1,66 1,82 1,103 1,110 1,136 1,140 1,160 1,172 1,184 1,191 1,205 1}
+{1 0.6,10 1,13 1,20 1,21 1,26 1,27 1,34 1,48 1,59 1,62 1,63 1,104 1,110 1,114 1,128 1,129 1,143 1,157 1,159 1,164 1,175 1,184 1,196 1,203 1,208 1,210 1}
+{0 Chambre,1 0.6,10 1,13 1,20 1,21 1,26 1,27 1,34 1,48 1,59 1,62 1,63 1,104 1,110 1,114 1,128 1,129 1,143 1,157 1,159 1,164 1,175 1,184 1,196 1,203 1,208 1,210 1}
+{0 Chambre,1 0.8,4 1,6 1,8 1,9 1,11 1,18 1,20 1,21 1,22 1,30 1,48 1,61 1,62 1,69 1,73 1,76 1,89 1,118 1,124 1,126 1,145 1,160 1,187 1}
+{0 Literie,1 0.8,4 1,6 1,8 1,9 1,11 1,18 1,20 1,21 1,22 1,30 1,48 1,61 1,62 1,69 1,73 1,76 1,89 1,118 1,124 1,126 1,145 1,160 1,187 1}
+{0 Service,1 0.8,4 1,6 1,8 1,9 1,11 1,18 1,20 1,21 1,22 1,30 1,48 1,61 1,62 1,69 1,73 1,76 1,89 1,118 1,124 1,126 1,145 1,160 1,187 1}
+{1 0.8,4 1,6 1,8 1,9 1,11 1,18 1,20 1,21 1,22 1,30 1,48 1,61 1,62 1,69 1,73 1,76 1,89 1,118 1,124 1,126 1,145 1,160 1,187 1}
+{0 Chambre,1 0.2,7 1,31 1,39 1,41 1,56 1,57 1,58 1,62 1,78 1,84 1,86 1,97 1,109 1,131 1,150 1,169 1,170 1,181 1,182 1,184 1,193 1,195 1,199 1,206 1,211 1}
+{0 Service,1 0.2,7 1,31 1,39 1,41 1,56 1,57 1,58 1,62 1,78 1,84 1,86 1,97 1,109 1,131 1,150 1,169 1,170 1,181 1,182 1,184 1,193 1,195 1,199 1,206 1,211 1}
+{1 0.2,7 1,31 1,39 1,41 1,56 1,57 1,58 1,62 1,78 1,84 1,86 1,97 1,109 1,131 1,150 1,169 1,170 1,181 1,182 1,184 1,193 1,195 1,199 1,206 1,211 1}
+{0 Qualité-Prix,1 0.6,12 1,53 1,62 1,72 1,77 1,85 1,116 1,127 1,138 1,139 1,151 1,152 1,162 1,167 1,169 1,185 1,186 1,198 1,209 1}
+{0 Chambre,1 0.6,12 1,53 1,62 1,72 1,77 1,85 1,116 1,127 1,138 1,139 1,151 1,152 1,162 1,167 1,169 1,185 1,186 1,198 1,209 1}
