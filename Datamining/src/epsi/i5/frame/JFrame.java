@@ -78,21 +78,30 @@ public class JFrame extends javax.swing.JFrame {
 
     private void jFileChooser1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFileChooser1ActionPerformed
 
-        Treatment tr = new Treatment();
-        
-        try {
-            tr.treatment(jFileChooser1.getSelectedFile());
-        } catch (IOException | RepustateException | ParseException ex) {
-            Logger.getLogger(JFrame.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        Weka arff = new Weka();
-        try {
-            arff.chargementData(tr.dataEnter);
-            arff.generationArff();
-            arff.generationArffFilter();
-            arff.excutionAlgo();
-        } catch (Exception ex) {
-            Logger.getLogger(JFrame.class.getName()).log(Level.SEVERE, null, ex);
+        if (evt.getActionCommand().equals("CancelSelection")) {
+
+            setVisible(false); //you can't see me!
+            dispose(); //Destroy the JFrame object
+
+        } else {
+
+            Treatment tr = new Treatment();
+
+            try {
+                tr.treatment(jFileChooser1.getSelectedFile());
+            } catch (IOException | RepustateException | ParseException ex) {
+                Logger.getLogger(JFrame.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            Weka arff = new Weka();
+            try {
+                arff.chargementData(tr.dataEnter);
+                arff.generationArff();
+                arff.generationArffFilter();
+                arff.excutionAlgo();
+            } catch (Exception ex) {
+                Logger.getLogger(JFrame.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
         }
 
     }//GEN-LAST:event_jFileChooser1ActionPerformed

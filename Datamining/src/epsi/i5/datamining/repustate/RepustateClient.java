@@ -17,7 +17,7 @@ import java.util.Set;
 public class RepustateClient {
 
     public static String DOMAIN = "http://api.repustate.com/v3/";
-    public static String API_KEY = "887499493fa6b501b8da1841a3430ce0a26910b4";
+    public static String API_KEY = "a16f016fcfdbc012644c7fe02166ff6195683dee";
     public static String BASE_URL = DOMAIN + API_KEY;
 
     public static String FORMAT_JSON = ".json";
